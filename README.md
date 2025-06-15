@@ -12,6 +12,19 @@ npm install -g vnow@next
 
 > **Note**: `vnow` is currently in pre-release. Use `vnow@next` to get the latest version.
 
+### Automatic VS Code Setup
+
+When installed in a VS Code workspace, vnow automatically:
+- Downloads vnow documentation (`versionnow/docs`) for context
+- Enables it in your workspace settings for Copilot integration
+- Provides instant access to vnow command documentation
+
+If automatic setup doesn't work, you can manually run:
+```bash
+vnow versionnow/docs
+vnow enable versionnow/docs
+```
+
 ## Usage
 
 ### Basic Commands
@@ -66,6 +79,8 @@ vnow reactjs/react.dev
 ```
 
 ### VS Code Integration
+
+> **Auto-Setup**: When you install vnow globally in a VS Code workspace, it automatically downloads and enables `versionnow/docs` for instant Copilot context.
 
 ```bash
 # Enable specific repo docs in VS Code
