@@ -2,6 +2,8 @@
 
 Convert GitHub documentation to searchable markdown files for AI/Copilot context.
 
+<!-- Test sync: 2025-06-15 -->
+
 ## Install
 
 ```bash
