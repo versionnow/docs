@@ -28,6 +28,8 @@ vnow disable [--min|--code|--all]  # Remove docs from VS Code context
 # Utilities
 vnow convert <file>               # Convert markdown to clean text format
 vnow format <file>                # Format text file for AI context
+vnow upgrade [--check]            # Upgrade vnow to latest version
+vnow --version, -v                # Show version information
 vnow help                         # Show help information
 ```
 
@@ -95,6 +97,20 @@ vnow disable --code
 
 # Disable all file types (same as no flags)
 vnow disable --all
+```
+
+### Version Management
+
+```bash
+# Check current version
+vnow --version
+vnow -v
+
+# Check for updates
+vnow upgrade --check
+
+# Upgrade to latest version
+vnow upgrade
 ```
 
 ## Output Formats
