@@ -1,10 +1,10 @@
 # vnow
 
-Convert GitHub documentation to searchable markdown files for AI/Copilot context.
+Documentation Extractor for AI Context
 
 <!-- Test sync: 2025-06-15 -->
 
-## Install
+## Installation
 
 ```bash
 npm install -g vnow@next
@@ -12,134 +12,59 @@ npm install -g vnow@next
 
 > **Note**: `vnow` is currently in pre-release. Use `vnow@next` to get the latest version.
 
-### Automatic VS Code Setup
+## Commands
 
-When you run vnow for the first time in a VS Code workspace, it will automatically:
-- Detect your VS Code workspace
-- Offer to download vnow documentation (`versionnow/docs`) for context
-- Offer to enable it in your workspace settings for Copilot integration
-- Provide instant access to vnow command documentation
-
-If you decline the automatic setup, you can manually run:
+### Basic Usage
 ```bash
-vnow versionnow/docs
-vnow enable versionnow/docs
-```
+# Extract repository documentation
+vnow <user/repo>
+vnow <github-url>
 
-## Usage
+# Quick workflow commands  
+vnow add <user/repo>                  # Download + enable in one command
+vnow remove <user/repo>               # Disable + delete completely
 
-### Basic Commands
-
-```bash
-# Download and convert repository documentation
-vnow <user/repo> [options]
-vnow <github-url> [options]
-
-# VS Code workspace integration  
-vnow enable [--min|--code|--all]   # Enable docs in VS Code context
-vnow disable [--min|--code|--all]  # Remove docs from VS Code context
+# VS Code workspace integration
+vnow enable                           # Add docs to VS Code context
+vnow disable                          # Remove docs from VS Code context
 
 # Utilities
-vnow convert <file>               # Convert markdown to clean text format
-vnow format <file>                # Format text file for AI context
-vnow upgrade [--check]            # Upgrade vnow to latest version
-vnow --version, -v                # Show version information
-vnow help                         # Show help information
+vnow convert <file>                   # Convert markdown to clean text
+vnow format <file>                    # Format text file for AI context
+vnow upgrade [--check]                # Upgrade to latest version
+vnow --version, -v                    # Show version information
 ```
 
-### Repository Formats
+## Output Options
 
-vnow accepts either `user/repo` format or full GitHub URLs:
+- `--min` - Clean text optimized for AI (.min.md)
+- `--code` - Code blocks only (.code.md)  
+- `--all` - All formats (.md, .min.md, .code.md)
+
+## Popular Frameworks
 
 ```bash
-# Repository format
-vnow denoland/deno
-
-# GitHub URL format  
-vnow https://github.com/sveltejs/svelte/tree/main/documentation/docs
-
-# With output options
-vnow sveltejs/kit --all
+vnow sveltejs/svelte                  # Svelte documentation
+vnow facebook/react                   # React documentation
+vnow vuejs/core                       # Vue.js documentation
+vnow solidjs/solid                    # SolidJS documentation
+vnow tailwindlabs/tailwindcss         # Tailwind CSS documentation
+vnow nextjs/next.js                   # Next.js documentation
+vnow remix-run/remix                  # Remix documentation
+vnow microsoft/TypeScript             # TypeScript documentation
 ```
 
-## Examples
-
-### Documentation Extraction
+## Testing
 
 ```bash
-# Popular documentation repositories
-vnow denoland/docs
-vnow sveltejs/svelte/documentation/docs  
-vnow sveltejs/kit/documentation/docs
-vnow tailwindlabs/tailwindcss.com
-
-# Framework documentation
-vnow microsoft/TypeScript/doc
-vnow nodejs/node/doc
-vnow reactjs/react.dev
+vnow add versionnow/docs              # Try vnow with our test repository
+vnow remove versionnow/docs           # Clean up when done testing
 ```
 
-### VS Code Integration
+## Output
 
-> **Auto-Setup**: When you first run vnow in a VS Code workspace, it will offer to download and enable `versionnow/docs` for instant Copilot context.
+- **Files saved to:** ./.vnow/ directory as <user>-<repo>.<format>
+- **VS Code settings:** .vscode/settings.json files.exclude  
+- **Perfect for:** GitHub Copilot and AI context
 
-```bash
-# Enable specific repo docs in VS Code
-vnow enable versionnow/docs
-
-# Enable only .md files
-vnow enable
-
-# Enable only .min.md files  
-vnow enable --min
-
-# Enable only .code.md files
-vnow enable --code
-
-# Enable all file types
-vnow enable --all
-
-# Disable specific repo docs
-vnow disable versionnow/docs
-
-# Disable all file types
-vnow disable
-
-# Disable only .min.md files
-vnow disable --min
-
-# Disable only .code.md files
-vnow disable --code
-
-# Disable all file types (same as no flags)
-vnow disable --all
-```
-
-### Version Management
-
-```bash
-# Check current version
-vnow --version
-vnow -v
-
-# Check for updates
-vnow upgrade --check
-
-# Upgrade to latest version
-vnow upgrade
-```
-
-## Output Formats
-
-- **Default (.md)**: Full markdown with all content
-- **Minified (--min)**: Clean text optimized for AI context
-- **Code only (--code)**: Just headings and code blocks
-- **All formats (--all)**: Generate all output types
-
-## Files and Organization
-
-- **Downloads**: Documentation files are saved to `./.vnow/` directory
-- **Naming**: Files use format `<user>-<repo>.<extension>` (e.g., `denoland-docs.md`)
-- **VS Code**: Integration modifies `.vscode/settings.json` to include/exclude files
-
-Perfect for feeding documentation context to GitHub Copilot, ChatGPT, or other AI tools.
+For more information: https://github.com/versionnow/docs
