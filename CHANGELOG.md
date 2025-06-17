@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0-next.17] - 2025-06-17 - 2025-06-16
+
+### Patch Changes (x.x.1)
+- Fixed version command showing "unknown" when installed via npm
+- Fixed upgrade command "Deno.Command is not a constructor" error
+- Added Node.js environment detection for npm package compatibility
+- Replaced Deno.Command with Node.js child_process.spawn for npm environments
+
 ## [1.0.0-next.16] - 2025-06-17 - 2025-06-15 - 2025-06-15 - 2025-06-15
 
 ### 🚀 Major Enhancements
