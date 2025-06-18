@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0-next.18] - 2025-06-18 - 2025-06-18
+
+### Patch Changes (x.x.1)
+- **CRITICAL BUG FIX: maxDepth Content Consistency**: Fixed maxDepth logic to ensure identical total content (pages, characters, tokens) regardless of maxDepth value
+- **No Content Duplication**: Completely refactored file collection to process each markdown file exactly once, eliminating duplicate content across output files
+- **Proper File Grouping**: maxDepth now correctly groups the same total content into different output files based on directory structure, never omitting or duplicating files
+- **Enhanced maxDepth Documentation**: Updated help text and README to clarify that maxDepth controls organization, not content filtering
+- **Verification Tested**: Confirmed that sum of all output files at any maxDepth matches the single file output at maxDepth=0
+
+## [1.0.0-next.18] - 2025-06-18
+
+### Minor Changes (x.1.x)
+- **Componentized Stats Display System**: Created reusable `displayCustomStatsTable()` function with flexible emoji/title support
+- **Unified Command Output**: All commands now show consistent, clean stats tables with appropriate emoji indicators
+- **Enhanced User Experience**: Streamlined output with minimal verbose messaging - only essential stats tables displayed
+- **Professional CLI Polish**: Commands now show `⬇️ DOWNLOADED`, `✅ ADDED/ENABLED`, `❌ DISABLED`, `🗑️ REMOVED` with beautiful formatted tables
+
+### Patch Changes (x.x.1)
+- Removed verbose deletion progress messages from remove command
+- Cleaned up fallback success messages across all commands  
+- Fixed unused imports and improved code maintainability
+- Preserved single "Processing..." message for install operations
+- Enhanced disable/remove command distinction (disable = settings only, remove = complete cleanup)
+- Improved error handling with silent fallbacks instead of verbose messaging
+
 ## [1.0.0-next.17] - 2025-06-17 - 2025-06-16
 
 ### Patch Changes (x.x.1)
@@ -155,7 +180,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial npm publishing with `@next` dist-tag
 - Core documentation extraction functionality
 - Support for multiple output formats (md, min.md, txt, code.md)
-- GitHub URL and user/repo format parsing
+- GitHub URL and name/repo format parsing
 
 ### Patch Changes
 - Moved from CLI prototype to production-ready tool

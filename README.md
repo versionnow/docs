@@ -4,11 +4,11 @@
 
 Transform GitHub repositories into AI-ready documentation with automatic version tracking, VS Code Copilot integration, and intelligent file management.
 
-<!-- Sync date: 2025-06-15 -->
+<!-- Sync date: 2025-06-18 -->
 
 ## ✨ Key Features
 
-- **🤖 VS Code Copilot Integration**: Seamlessly add repository docs to your AI context
+- **🤖 VS Code Copilot Integration**: Seamlessly add docs to your AI context
 - **📦 Versioned File Management**: Automatic semantic versioning with metadata tracking  
 - **🎯 Multiple Output Formats**: Standard, minified, and code-only documentation
 - **⚡ Smart Workflows**: One-command install + enable, remove + cleanup
@@ -27,34 +27,39 @@ npm install -g vnow@next
 
 ```bash
 # Add repository to your AI context (install + enable)
-vnow add facebook/react --all
+vnow add sveltejs/svelte --all
 
 # Remove completely (disable + delete)  
-vnow remove facebook/react
+vnow remove sveltejs/svelte
 
 # Manual workflow
-vnow facebook/react --all           # Install with all formats
-vnow enable facebook/react          # Add to VS Code Copilot
-vnow disable facebook/react         # Remove from Copilot
+vnow sveltejs/svelte --all           # Install with all formats
+vnow enable sveltejs/svelte          # Add to VS Code Copilot
+vnow disable sveltejs/svelte         # Remove from Copilot
 ```
 
 ## 📋 Commands
 
 ### **Repository Management**
 ```bash
-vnow <user/repo>                    # Extract documentation 
+vnow <name/repo>                    # Extract documentation 
 vnow <github-url>                   # Works with full GitHub URLs
-vnow add <user/repo>                # Install + enable in one command
-vnow remove <user/repo>             # Disable + delete completely
+vnow add <name/repo>                # Install + enable in one command
+vnow remove <name/repo>             # Disable + delete completely
 ```
 
 ### **VS Code Integration**  
 ```bash
-vnow enable <user/repo>             # Add to Copilot context
-vnow disable <user/repo>            # Remove from Copilot context
-vnow enable <user/repo> --all       # Enable all file types
-vnow disable <user/repo> --min      # Disable only .min.md files
+vnow enable <name/repo>             # Add standard .md files to Copilot
+vnow disable <name/repo>            # Remove all files from Copilot
+vnow enable <name/repo> --all       # Enable all file types (.md, .min.md, .code.md)
+vnow enable <name/repo> --min       # Enable only minified .min.md files
+vnow enable <name/repo> --code      # Enable only code .code.md files
+vnow disable <name/repo> --min      # Remove only .min.md files from Copilot
+vnow disable <name/repo> --code     # Remove only .code.md files from Copilot
 ```
+
+> **Note**: `enable` adds files to VS Code Copilot context. `disable` only removes from VS Code settings (files remain). Use `remove` to delete files completely.
 
 ### **File Processing**
 ```bash
@@ -83,22 +88,17 @@ vnow --help, -h                     # Show detailed help
 ```bash
 # Frontend Frameworks
 vnow sveltejs/svelte                # Svelte documentation  
-vnow facebook/react                 # React documentation
-vnow vuejs/core                     # Vue.js documentation
-vnow solidjs/solid                  # SolidJS documentation
+vnow sveltejs/kit                   # SvelteKit documentation
+vnow vuejs/docs                     # Vue.js documentation
+vnow reactjs/react.dev              # React documentation
 
 # Full-Stack & Meta-Frameworks  
 vnow nextjs/next.js                 # Next.js documentation
-vnow remix-run/remix                # Remix documentation
 vnow nuxt/nuxt                      # Nuxt.js documentation
 
-# Styling & UI
-vnow tailwindlabs/tailwindcss       # Tailwind CSS documentation
-vnow chakra-ui/chakra-ui            # Chakra UI documentation
-
-# Development Tools
-vnow microsoft/TypeScript           # TypeScript documentation  
-vnow denoland/deno                  # Deno runtime documentation
+# Styling & Development Tools
+vnow tailwindlabs/tailwindcss.com   # Tailwind CSS documentation
+vnow microsoft/TypeScript-wiki      # TypeScript documentation
 ```
 
 ## 🧪 Try It Out
@@ -117,9 +117,9 @@ vnow remove versionnow/docs         # Complete cleanup
 Files are automatically versioned using semantic versioning:
 ```
 .vnow/
-├── facebook-react@18.2.0.md           # Standard documentation
-├── facebook-react@18.2.0.min.md       # Minified version  
-├── facebook-react@18.2.0.code.md      # Code examples only
+├── sveltejs-svelte@4.2.8.md           # Standard documentation
+├── sveltejs-svelte@4.2.8.min.md       # Minified version  
+├── sveltejs-svelte@4.2.8.code.md      # Code examples only
 └── metadata.json                       # Repository tracking
 ```
 
@@ -128,8 +128,8 @@ Enabled files are automatically added to `.vscode/settings.json`:
 ```json
 {
   "github.copilot.chat.codeGeneration.instructions": [
-    { "file": ".vnow/facebook-react@18.2.0.md" },
-    { "file": ".vnow/facebook-react@18.2.0.min.md" }
+    { "file": ".vnow/sveltejs-svelte@4.2.8.md" },
+    { "file": ".vnow/sveltejs-svelte@4.2.8.min.md" }
   ]
 }
 ```
@@ -145,23 +145,65 @@ Every installation provides detailed metrics:
 
 ## 🔧 Advanced Usage
 
+### **Directory Depth Control (maxDepth)**
+Control how deep vnow processes subdirectories in repositories:
+
+```bash
+# Default: Process 2 levels deep
+vnow reactjs/react.dev               # Processes /docs/ and /docs/subdirs/
+
+# Custom depth: Process 3 levels deep  
+vnow reactjs/react.dev 3             # Processes /docs/subdirs/subsubdirs/
+
+# Unlimited depth: Process all directories
+vnow reactjs/react.dev 0             # Processes entire repository structure
+
+# With custom name and depth
+vnow reactjs/react.dev 2 my-react-docs  # 2 levels deep, custom directory name
+```
+
+**maxDepth Examples:**
+- `maxDepth: 1` → Only top-level files (README.md, docs/file.md)
+- `maxDepth: 2` → Two levels deep (docs/guide/setup.md) **[DEFAULT]**
+- `maxDepth: 3` → Three levels deep (docs/guide/advanced/tips.md)
+- `maxDepth: 0` → No limit (processes entire repository)
+
+### **VS Code File Management**
+Understand how enable/disable affects your Copilot context:
+
+```bash
+# Repository lifecycle
+vnow add reactjs/react.dev --all     # Install + auto-enable .md files
+vnow enable reactjs/react.dev --min  # Add .min.md files to context  
+vnow enable reactjs/react.dev --code # Add .code.md files to context
+vnow disable reactjs/react.dev --min # Remove only .min.md from context
+vnow disable reactjs/react.dev       # Remove all files from context
+vnow remove reactjs/react.dev        # Delete files + remove from context
+```
+
+**File States:**
+- **Installed**: Files exist in `.vnow/` directory
+- **Enabled**: Files are active in VS Code Copilot context  
+- **Disabled**: Files exist but not in Copilot context
+- **Removed**: Files deleted completely
+
 ### **Custom Organization**
 ```bash
-vnow facebook/react 2 custom-name    # Custom directory structure
-vnow facebook/react 0                # No subdirectory depth limit
+vnow reactjs/react.dev 2 custom-name # Custom directory structure
+vnow reactjs/react.dev 0             # No subdirectory depth limit
 ```
 
 ### **Batch Operations**  
 ```bash
-# Install multiple repositories
-vnow add sveltejs/svelte --all
-vnow add facebook/react --min  
-vnow add vuejs/core --code
+# Install multiple repositories with different formats
+vnow add sveltejs/svelte --all       # All formats + enable standard .md
+vnow add reactjs/react.dev --min     # Minified only + enable .min.md  
+vnow add vuejs/docs --code           # Code only + enable .code.md
 
-# Enable all at once  
-vnow enable sveltejs/svelte
-vnow enable facebook/react
-vnow enable vuejs/core
+# Fine-tune Copilot Context
+vnow enable sveltejs/svelte --all    # Enable all Svelte file types
+vnow enable reactjs/react.dev        # Enable standard React docs
+vnow disable vuejs/docs --code       # Remove Vue code examples from context
 ```
 
 ## 🤝 Contributing & Support
