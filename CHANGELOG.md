@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0-next.18] - 2025-06-18 - 2025-06-18
+## [1.0.0-next.19] - 2025-06-24 - 2025-06-18 - 2025-06-18
 
 ### Patch Changes (x.x.1)
 - **CRITICAL BUG FIX: maxDepth Content Consistency**: Fixed maxDepth logic to ensure identical total content (pages, characters, tokens) regardless of maxDepth value
@@ -143,7 +143,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `vnow enable` (no flags) now enables only `.md` files
   - `vnow disable` (no flags) now disables all file types (.md, .min.md, .code.md)
   - Added `--min`, `--code`, and `--all` flags for granular file type control
-- Automated documentation sync to versionnow/docs repository during publish process
+- Automated documentation sync to versionnow/+docs repository during publish process
 - Added version command (`vnow --version`, `vnow -v`) for current version display
 - Added upgrade command (`vnow upgrade`) with automatic latest version installation
 - Implemented daily automatic version checking with smart notifications
