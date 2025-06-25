@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0-next.21] - 2025-06-25 - 2025-06-25 - 2025-06-24 - 2025-06-18 - 2025-06-18
+## [1.0.0-next.22] - 2025-06-25 - 2025-06-25 - 2025-06-25 - 2025-06-24 - 2025-06-18 - 2025-06-18
 
 ### Patch Changes (x.x.1)
 - **CRITICAL BUG FIX: maxDepth Content Consistency**: Fixed maxDepth logic to ensure identical total content (pages, characters, tokens) regardless of maxDepth value
