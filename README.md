@@ -42,21 +42,21 @@ vnow disable sveltejs/svelte         # Remove from Copilot
 
 ### **Repository Management**
 ```bash
-vnow <name/repo>                    # Extract documentation 
+vnow <org/repo>                    # Extract documentation 
 vnow <github-url>                   # Works with full GitHub URLs
-vnow add <name/repo>                # Install + enable in one command
-vnow remove <name/repo>             # Disable + delete completely
+vnow add <org/repo>                # Install + enable in one command
+vnow remove <org/repo>             # Disable + delete completely
 ```
 
 ### **VS Code Integration**  
 ```bash
-vnow enable <name/repo>             # Add standard .md files to Copilot
-vnow disable <name/repo>            # Remove all files from Copilot
-vnow enable <name/repo> --all       # Enable all file types (.md, .min.md, .code.md)
-vnow enable <name/repo> --min       # Enable only minified .min.md files
-vnow enable <name/repo> --code      # Enable only code .code.md files
-vnow disable <name/repo> --min      # Remove only .min.md files from Copilot
-vnow disable <name/repo> --code     # Remove only .code.md files from Copilot
+vnow enable <org/repo>             # Add standard .md files to Copilot
+vnow disable <org/repo>            # Remove all files from Copilot
+vnow enable <org/repo> --all       # Enable all file types (.md, .min.md, .code.md)
+vnow enable <org/repo> --min       # Enable only minified .min.md files
+vnow enable <org/repo> --code      # Enable only code .code.md files
+vnow disable <org/repo> --min      # Remove only .min.md files from Copilot
+vnow disable <org/repo> --code     # Remove only .code.md files from Copilot
 ```
 
 > **Note**: `enable` adds files to VS Code Copilot context. `disable` only removes from VS Code settings (files remain). Use `remove` to delete files completely.
