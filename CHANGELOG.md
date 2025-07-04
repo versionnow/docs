@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0-next.26] - 2025-07-04 - 2025-07-04 - 2025-07-04 - 2025-07-04
+## [1.0.0-next.27] - 2025-07-04 - 2025-07-04 - 2025-07-04 - 2025-07-04 - 2025-07-04
 
 ### Minor Changes (x.1.x)
 - **JSON Schema IntelliSense**: Added comprehensive JSON schema support for `vnow.json` configuration files with autocomplete, validation, and hover documentation
