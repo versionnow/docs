@@ -5,6 +5,36 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0-next.24] - 2025-07-04 - 2025-07-04
+
+### Minor Changes (x.1.x)
+- **JSON Schema IntelliSense**: Added comprehensive JSON schema support for `vnow.json` configuration files with autocomplete, validation, and hover documentation
+- **Auto-Generated Schema Integration**: Integrated schema generation into build process with TypeScript-based schema definitions that auto-generate JSON schemas
+- **Enhanced CLI Settings Support**: Added robust support for both VS Code and Gemini CLI tools with flag-based configuration (`--vscode`, `--gemini`, `--all`)
+- **Config-Based Installation**: Added `vnow install` command to automatically install all repositories listed in `vnow.json` source array
+- **Initialization Command**: Added `vnow init` command to create clean configuration files with schema references and user-selected CLI tools
+
+### Patch Changes (x.x.1)
+- **DRY Config Management**: Unified all config file operations to use single `saveConfig()` function, ensuring consistent clean output with only essential fields
+- **Settings File Comma Handling**: Fixed JSON comma syntax issues in VS Code and Gemini settings files when adding multiple repositories across organizations
+- **Schema Build Integration**: Automated schema generation during `deno task build` process for consistent development workflow
+- **Clean Config Output**: Config files now only include user-relevant fields (`$schema`, `settings`, `source`) without internal configuration clutter
+- **Type Safety Improvements**: Resolved TypeScript errors in config handling with proper type definitions and centralized functions
+
+### 🛠️ Technical Improvements
+
+**IntelliSense & Developer Experience**
+- **TypeScript Schema Definition**: Created `src/schema/schema.ts` with comprehensive schema definitions
+- **Build-Time Generation**: Schema auto-generates during build process ensuring consistency
+- **VS Code Integration**: Full autocomplete support for configuration properties with pattern validation
+- **Error Prevention**: Real-time validation prevents invalid repository formats and settings
+
+**Configuration Architecture**
+- **Essential Fields Only**: Generated config files contain only `$schema`, `settings`, and `source` properties
+- **Schema Reference**: All config files include `$schema` property for IDE support
+- **CLI Tool Flexibility**: Support for multiple CLI tools with individual or combined configuration
+- **Default Handling**: Smart defaults with VS Code as primary target, extensible to other tools
+
 ## [1.0.0-next.23] - 2025-06-26 - 2025-06-25 - 2025-06-25 - 2025-06-25 - 2025-06-24 - 2025-06-18 - 2025-06-18
 
 ### Patch Changes (x.x.1)
