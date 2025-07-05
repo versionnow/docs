@@ -20,7 +20,7 @@ npx vnow                            # Run Instantly
 ### ➜ COMMANDS
 ```bash
 vnow init                           # Initialize vnow config file
-vnow install                        # Install from config
+vnow install, i                     # Install from config 
 vnow update                         # Update repos
 
 vnow <org/repo>                     # Download repo docs
