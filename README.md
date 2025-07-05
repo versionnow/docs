@@ -13,64 +13,58 @@ Convert any GitHub repository to a single markdown file for AI Context
 ## 📦 Installation
 
 ```bash
-npm i -g vnow@next
+npm i -g vnow                       # Install Globally
+npx vnow                            # Run Instantly
 ```
-
 
 ### ➜ COMMANDS
 ```bash
-vnow <org/repo>                     # Extract or more repo documentation 
-vnow add <org/repo>                 # Download + enable in one command
-vnow remove <org/repo>              # Disable + delete completely
+vnow init                           # Initialize vnow config file
+vnow install                        # Install from config
+vnow update                         # Update repos
 
-vnow enable <org/repo>              # Add docs to AI context
-vnow disable <org/repo>             # Remove docs from AI context
+vnow <org/repo>                     # Download repo docs
+vnow add <org/repo>                 # Download + enable
+vnow remove <org/repo>              # Remove + disable
 
-vnow install                        # Install from vnow.json config
+vnow enable <org/repo>              # Enable docs in settings
+vnow disable <org/repo>             # Disable docs from settings
+
 vnow help                           # Show help menu
-vnow --version, -v                  # Show version information
+vnow upgrade                        # Upgrade to latest version
+vnow --version, -v                  # Show version info
 ```
 
-### ➜ EXAMPLES
+### ➜ DEMOS
 ```bash
-vnow add versionnow/docs            # Try vnow with our docs
-vnow add sveltejs/svelte            # Svelte framework docs
-vnow add vuejs/docs                 # Vue.js documentation
-vnow add reactjs/react.dev          # React documentation
-vnow add nextjs/next.js             # Next.js documentation
+vnow versionnow/docs                # Version Now docs
+
+vnow sveltejs/svelte                # Svelte docs
+vnow sveltejs/kit                   # SvelteKit docs
+vnow vuejs/docs                     # Vue.js docs
+vnow nuxt/nuxt                      # Nuxt docs
+vnow reactjs/react.dev              # React docs
+vnow nextjs/next.js                 # Next.js docs
+vnow microsoft/TypeScript-wiki      # TypeScript docs
+vnow tailwindlabs/tailwindcss.com   # Tailwind docs
 ```
 
-### ➜ OUTPUT OPTIONS
+### ➜ OPTIONS
 ```bash
+vnow --vscode                       # Enables VS Code settings
+vnow --gemini                       # Enables Gemini settings
+
+vnow <org/repo> 1                   # One level deep
+vnow <org/repo> 2                   # Two levels deep
+vnow <org/repo> 100                 # Many levels deep!
+
 vnow <org/repo>                     # Standard markdown (.md)
 vnow <org/repo> --min               # Clean text optimized for AI (.min.md)
 vnow <org/repo> --code              # Code blocks only (.code.md)
-vnow <org/repo> --all               # All formats (.md, .min.md, .code.md)
-
-vnow <org/repo> 1                   # 1 level deep
-vnow <org/repo> 2                   # 2 levels deep
+vnow <org/repo> --all               # All formats 
 ```
 
-### ➜ CLI SETTINGS
-```bash
---vscode                            # Use VS Code settings
---gemini                            # Use Gemini settings
-```
-
-### ➜ ALL COMMANDS
-```bash
-init                                # Initialize vnow.json config file
-install [repos...]                  # Install from repositories or config
-add [repos...]                      # Add repositories to documentation
-remove [repos...]                   # Remove repositories from documentation
-enable [repos...]                   # Enable documentation files
-disable [repos...]                  # Disable documentation files
-version [args...]                   # Show version information
-help [command]                      # Show help or command-specific help
-upgrade                             # Upgrade to latest version
-```
-
-### ➜ OUTPUT LOCATIONS
+### ➜ OUTPUT
 ```bash
 Config file:                        # vnow.json
 Converted docs:                     # .vnow/
@@ -81,10 +75,9 @@ Gemini settings:                    # .gemini/settings.json
 
 ## 🔗 Links
 
-- **Website**: [https://version.now](https://version.now) *(coming soon)*
-- **Documentation**: [GitHub](https://github.com/versionnow/docs)
-- **Issues**: [Report bugs](https://github.com/versionnow/vnow/issues)
-- **Cheatsheet**: [Big List Of Repos](https://docs.google.com/spreadsheets/d/1Yxogakp1UIUSuwyNWboYtmDXifxGtlaoPI6P2NWkFa4/edit?gid=0#gid=0)
+- **Website**: https://version.now/ *(coming soon)*
+- **Documentation**: https://github.com/versionnow/docs
+- **Cheatsheet**: https://docs.google.com/spreadsheets/d/1Yxogakp1UIUSuwyNWboYtmDXifxGtlaoPI6P2NWkFa4/edit?gid=0#gid=0
 
 ---
 

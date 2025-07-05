@@ -5,7 +5,36 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0-next.27] - 2025-07-04 - 2025-07-04 - 2025-07-04 - 2025-07-04 - 2025-07-04
+## [0.29.0] - 2025-07-05 - 2025-07-05
+
+### Minor Changes (x.1.x)
+- **Update Command**: Added `vnow update` command to update all repositories to their latest versions with smart change detection
+- **Source Array Permanent Record System**: Refactored vnow.json source array to be a permanent record of downloaded repositories, only modified during download (install/add/enable) or removal operations
+- **Simplified Enable/Disable Logic**: Enable and disable commands now only affect AI context settings, never modify the source array, providing cleaner separation of concerns
+- **Centralized Source Management**: Created `sourceManager.ts` utility with `addToConfigSource` and `removeFromConfigSource` functions using metadata `srcPath` as canonical values
+
+### Patch Changes (x.x.1)
+- **Install Stats Bug Fix**: Fixed install command showing duplicate file counts when multiple CLI tools are configured (vscode + gemini)
+- **Install Scope Bug Fix**: Fixed install command showing all enabled files instead of only files from repositories in vnow.json source array
+- **Clean Command Safety Rule**: Added mandatory git commit requirement before running clean commands to prevent data loss
+- **Enhanced Test Coverage**: Added comprehensive source array behavior tests ensuring enable/disable preserve source while install/add/remove modify it appropriately
+- **Silent Source Updates**: Source manager now supports silent mode to prevent verbose logging during batch operations
+
+### 🛠️ Technical Improvements
+
+**Source Array Management**
+- **Permanent Record**: Source array represents actual downloaded repositories, not temporary enable/disable state
+- **Metadata Integration**: Uses `srcPath` from metadata as canonical source of truth for array entries  
+- **Centralized Logic**: Single utility handles all source array modifications with consistent error handling
+- **No Auto-Cleanup**: Manual edits and mismatches between metadata and source are preserved without validation
+
+**Command Behavior Changes**
+- **Install/Add Commands**: Always add successful downloads to source array using centralized utility
+- **Enable Command**: Downloads missing repos and adds to source, but existing repos only affect settings
+- **Disable Command**: Never modifies source array, only removes from AI context settings
+- **Remove Command**: Only command that removes entries from source array, uses centralized utility
+
+## [1.0.0-next.27] - 2025-07-04 - 2025-07-04 - 2025-07-04 - 2025-07-04 - 2025-07-04 - 2025-07-04
 
 ### Minor Changes (x.1.x)
 - **JSON Schema IntelliSense**: Added comprehensive JSON schema support for `vnow.json` configuration files with autocomplete, validation, and hover documentation
