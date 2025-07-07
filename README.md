@@ -51,8 +51,8 @@ vnow tailwindlabs/tailwindcss.com   # Tailwind docs
 
 ### ➜ OPTIONS
 ```bash
-vnow --vscode                       # Enables VS Code settings
-vnow --gemini                       # Enables Gemini settings
+vnow use --vscode                   # Enables VS Code settings
+vnow use --gemini                   # Enables Gemini settings
 
 vnow <org/repo> 1                   # One level deep
 vnow <org/repo> 2                   # Two levels deep
