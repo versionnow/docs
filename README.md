@@ -77,7 +77,7 @@ Gemini settings:                    # .gemini/settings.json
 
 - **Website**: https://version.now/ *(coming soon)*
 - **Documentation**: https://github.com/versionnow/docs
-- **Cheatsheet**: https://docs.google.com/spreadsheets/d/1Yxogakp1UIUSuwyNWboYtmDXifxGtlaoPI6P2NWkFa4/edit?gid=0#gid=0
+- **Cheatsheet**: [BIG List of Docs](https://docs.google.com/spreadsheets/d/1Yxogakp1UIUSuwyNWboYtmDXifxGtlaoPI6P2NWkFa4/edit?gid=0#gid=0)
 
 ---
 
