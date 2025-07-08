@@ -22,6 +22,7 @@ npx vnow                            # Run Instantly
 vnow init                           # Initialize vnow config file
 vnow install, i                     # Install from config 
 vnow update                         # Update repos
+vnow list                           # Lists enabled/disabled docs
 
 vnow <org/repo>                     # Download repo docs
 vnow add <org/repo>                 # Download + enable
@@ -29,6 +30,8 @@ vnow remove <org/repo>              # Remove + disable
 
 vnow enable <org/repo>              # Enable docs in settings
 vnow disable <org/repo>             # Disable docs from settings
+
+vnow use vscode gemini              # Enables settings globally
 
 vnow help                           # Show help menu
 vnow upgrade                        # Upgrade to latest version
@@ -51,9 +54,6 @@ vnow tailwindlabs/tailwindcss.com   # Tailwind docs
 
 ### ➜ OPTIONS
 ```bash
-vnow use --vscode                   # Enables VS Code settings
-vnow use --gemini                   # Enables Gemini settings
-
 vnow <org/repo> 1                   # One level deep
 vnow <org/repo> 2                   # Two levels deep
 vnow <org/repo> 100                 # Many levels deep!
@@ -62,6 +62,9 @@ vnow <org/repo>                     # Standard markdown (.md)
 vnow <org/repo> --min               # Clean text optimized for AI (.min.md)
 vnow <org/repo> --code              # Code blocks only (.code.md)
 vnow <org/repo> --all               # All formats 
+
+vnow <command> --vscode             # VS Code Settings override
+vnow <command> --gemini             # Gemini Settings override
 ```
 
 ### ➜ OUTPUT
