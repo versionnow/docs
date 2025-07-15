@@ -140,3 +140,4 @@
 "0133","","0.0.1","3","2","DONE","CLI","Fix remove --all command to always display stats table","commands, stats"
 "0134","0133","0.0.1","2","2","DONE","TESTING","Update integration tests to verify stats table in remove commands","testing, stats"
 "0135","","0.1.0","8","3","DONE","REFACTOR","Complete flag manager integration across all commands","refactoring, flags"
+"0136","","0.1.0","5","3","DONE","CLI","Add stdout/file output options for LLM tool chaining (Joah feedback)","output, llm, chaining"
