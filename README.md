@@ -1,6 +1,6 @@
 # vnow
 
-Convert any GitHub repository to a single markdown file for AI Context
+Convert GitHub repositories and local directories to AI context files
 
 ## ✨ Features
 
@@ -9,6 +9,7 @@ Convert any GitHub repository to a single markdown file for AI Context
 - **📦 Smart Docs Management** - Versioned, organized output  
 - **⚡ One-Command Workflows** - Install + enable context in one step
 - **🎯 Multiple Formats** - Standard, minified, code-only
+- **📁 Local Directory Support** - Process local folders alongside GitHub repos
 
 ## 📦 Installation
 
@@ -25,6 +26,7 @@ vnow update                         # Update repos
 vnow list                           # Lists enabled/disabled docs
 
 vnow <org/repo>                     # Download repo docs
+vnow <local-folder>                 # Process local directory
 vnow add <org/repo>                 # Download + enable
 vnow remove <org/repo>              # Remove + disable
 
@@ -41,6 +43,8 @@ vnow --version, -v                  # Show version info
 ### ➜ DEMOS
 ```bash
 vnow versionnow/docs                # Version Now docs
+vnow ./my-project                   # Local project folder
+vnow ../docs                        # Relative path to docs
 
 vnow sveltejs/svelte                # Svelte docs
 vnow sveltejs/kit                   # SvelteKit docs

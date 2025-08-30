@@ -141,3 +141,8 @@
 "0134","0133","0.0.1","2","2","DONE","TESTING","Update integration tests to verify stats table in remove commands","testing, stats"
 "0135","","0.1.0","8","3","DONE","REFACTOR","Complete flag manager integration across all commands","refactoring, flags"
 "0136","","0.1.0","5","3","DONE","CLI","Add stdout/file output options for LLM tool chaining (Joah feedback)","output, llm, chaining"
+"0137","","0.1.0","8","3","NEW","LOCAL","Implement full local folder processing functionality","local, processing"
+"0138","0137","0.1.0","5","3","NEW","LOCAL","Copy and process local files similar to GitHub workflow","local, files"
+"0139","0138","0.1.0","3","3","NEW","LOCAL","Generate markdown output for local directories","local, markdown"
+"0140","0139","0.1.0","5","3","NEW","LOCAL","Add local source metadata storage and tracking","local, metadata"
+"0141","0140","0.1.0","3","3","NEW","LOCAL","Support enable/disable for local sources","local, commands"
